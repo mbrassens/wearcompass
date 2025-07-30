@@ -74,4 +74,5 @@ dependencies {
     // Complications
     implementation "androidx.wear.watchface:watchface-complications-data-source:1.2.1"
     implementation "androidx.compose.material:material-icons-extended:1.6.7"
+    implementation 'com.google.android.gms:play-services-location:21.2.0'
 }

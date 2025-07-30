@@ -26,8 +26,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6019b5ba-6b02-4f09-b780-6452b38fc926" name="Changes" comment="Enhance HelloWorldTileService to launch CountdownActivity with a 1-minute timer and add preview functionality. Update Gradle dependencies for Wear Tiles tooling and ProtoLayout expression. Modify IDE configuration files, including deployment targets, execution history, and file hashes.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow.xml" afterDir="false" />
+    <list default="true" id="6019b5ba-6b02-4f09-b780-6452b38fc926" name="Changes" comment="Refactor: Rename package `weartimer` to `wearcompass` and update MainActivity for compass functionality.&#10;&#10;- Rename the main package from `com.frank.weartimer` to `com.frank.wearcompass`.&#10;- Update `MainActivity.kt` to implement a compass using accelerometer and magnetometer sensors.&#10;- Add `ACCESS_FINE_LOCATION` permission to `AndroidManifest.xml`.&#10;- Add `ic_arrow.xml` drawable for the compass needle.&#10;- Remove timer-specific logic from `MainActivity.kt`.&#10;- Update various Gradle and IDE configuration files to reflect package renaming and file changes.">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.bin" afterDir="false" />
@@ -35,20 +37,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/BasicTimerComplicationService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/BasicTimerComplicationService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/CountdownActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/CountdownActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/OneMinuteTimerComplicationService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/OneMinuteTimerComplicationService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/SimpleTimerComplicationService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/SimpleTimerComplicationService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/TimerOldTileService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/TimerOldTileService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/TimerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/TimerService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/TimerTileService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/TimerTileService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/util/Annotations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/util/Annotations.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/util/FormatUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/util/FormatUtils.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -457,7 +448,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753799118740</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Refactor: Rename package `weartimer` to `wearcompass` and update MainActivity for compass functionality.&#10;&#10;- Rename the main package from `com.frank.weartimer` to `com.frank.wearcompass`.&#10;- Update `MainActivity.kt` to implement a compass using accelerometer and magnetometer sensors.&#10;- Add `ACCESS_FINE_LOCATION` permission to `AndroidManifest.xml`.&#10;- Add `ic_arrow.xml` drawable for the compass needle.&#10;- Remove timer-specific logic from `MainActivity.kt`.&#10;- Update various Gradle and IDE configuration files to reflect package renaming and file changes.">
+      <option name="closed" value="true" />
+      <created>1753884226860</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1753884226860</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -478,11 +477,22 @@
     <MESSAGE value="Add HelloWorldTileService and update its configuration in AndroidManifest.xml. Modify Gradle and IDE configuration files, including execution history, file hashes and problem reports." />
     <MESSAGE value="Update timer functionality by refactoring TimerService to use LifecycleService, enhancing state management with coroutines and SharedPreferences. Introduce utility methods for time formatting and improve notification handling. Modify CountdownActivity and TimerTileService for better integration. Update Gradle dependencies and IDE configuration files to reflect these changes." />
     <MESSAGE value="Enhance HelloWorldTileService to launch CountdownActivity with a 1-minute timer and add preview functionality. Update Gradle dependencies for Wear Tiles tooling and ProtoLayout expression. Modify IDE configuration files, including deployment targets, execution history, and file hashes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhance HelloWorldTileService to launch CountdownActivity with a 1-minute timer and add preview functionality. Update Gradle dependencies for Wear Tiles tooling and ProtoLayout expression. Modify IDE configuration files, including deployment targets, execution history, and file hashes." />
+    <MESSAGE value="Refactor: Rename package `weartimer` to `wearcompass` and update MainActivity for compass functionality.&#10;&#10;- Rename the main package from `com.frank.weartimer` to `com.frank.wearcompass`.&#10;- Update `MainActivity.kt` to implement a compass using accelerometer and magnetometer sensors.&#10;- Add `ACCESS_FINE_LOCATION` permission to `AndroidManifest.xml`.&#10;- Add `ic_arrow.xml` drawable for the compass needle.&#10;- Remove timer-specific logic from `MainActivity.kt`.&#10;- Update various Gradle and IDE configuration files to reflect package renaming and file changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor: Rename package `weartimer` to `wearcompass` and update MainActivity for compass functionality.&#10;&#10;- Rename the main package from `com.frank.weartimer` to `com.frank.wearcompass`.&#10;- Update `MainActivity.kt` to implement a compass using accelerometer and magnetometer sensors.&#10;- Add `ACCESS_FINE_LOCATION` permission to `AndroidManifest.xml`.&#10;- Add `ic_arrow.xml` drawable for the compass needle.&#10;- Remove timer-specific logic from `MainActivity.kt`.&#10;- Update various Gradle and IDE configuration files to reflect package renaming and file changes." />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
+        <entry key="com.frank.wearcompass">
+          <value>
+            <CheckInfo lastCheckTimestamp="1753884217881" />
+          </value>
+        </entry>
+        <entry key="com.frank.wearcompass.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1753884217881" />
+          </value>
+        </entry>
         <entry key="com.frank.weartictactoe">
           <value>
             <CheckInfo lastCheckTimestamp="1753222581091" />
