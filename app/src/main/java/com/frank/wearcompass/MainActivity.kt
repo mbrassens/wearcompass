@@ -1,191 +1,146 @@
 package com.frank.wearcompass
 
-import android.annotation.SuppressLint
-import android.content.Intent
+import android.Manifest
+import android.content.Context
+import android.content.pm.PackageManager
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.wear.compose.material.Button
-import androidx.wear.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.wear.compose.material.Picker
-import androidx.wear.compose.material.rememberPickerState
-import androidx.wear.compose.material.TimeText
-import androidx.wear.compose.material.Scaffold
-import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
-import android.content.Context
+import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Devices
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.wear.compose.material.MaterialTheme
 
-class MainActivity : ComponentActivity() {
-    @SuppressLint("WrongConstant")
+class MainActivity : ComponentActivity(), SensorEventListener {
+
+    private val LOCATION_PERMISSION_REQUEST_CODE = 1
+
+    private lateinit var sensorManager: SensorManager
+    private var accelerometer: Sensor? = null
+    private var magnetometer: Sensor? = null
+
+    private val rotationMatrix = FloatArray(9)
+    private val orientationAngles = FloatArray(3)
+
+    private var gravity: FloatArray? = null
+    private var geomagnetic: FloatArray? = null
+    
+    private var bearing by mutableStateOf(0f)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        // Check if a timer is already running
-        val isTimerRunning = isTimerRunning()
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        magnetometer = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
         
-        if (isTimerRunning) {
-            // Redirect to CountdownActivity if timer is running
-            val intent = Intent(this, CountdownActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
-            finish()
-        } else {
-            // Show timer picker if no timer is running
-            setContent {
-                StartTimerScreen { timerLength ->
-                    val intent = Intent(this, CountdownActivity::class.java)
-                    intent.putExtra("timer_length", timerLength)
-                    startActivity(intent)
-                    finish() // Close MainActivity when starting timer
-                }
+        requestPermissions()
+        
+        setContent {
+            MaterialTheme {
+                Compass(bearing = bearing)
             }
         }
     }
-    
-    private fun isTimerRunning(): Boolean {
-        // Check if CountdownActivity is in the foreground or if there's an ongoing timer
-        val prefs = getSharedPreferences("timer_state", Context.MODE_PRIVATE)
-        val isTimerRunning = prefs.getBoolean("timer_running", false)
-        val isTimerFinished = prefs.getBoolean("timer_finished", false)
-        
-        // Return true if timer is running OR finished (both should redirect to CountdownActivity)
-        return isTimerRunning || isTimerFinished
+
+    private fun requestPermissions() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
+        } else {
+            setupSensors()
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                setupSensors()
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setupSensors()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sensorManager.unregisterListener(this)
+    }
+
+    private fun setupSensors() {
+        accelerometer?.also { sensor ->
+            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI)
+        }
+        magnetometer?.also { sensor ->
+            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI)
+        }
+    }
+
+    override fun onSensorChanged(event: SensorEvent) {
+        if (event.sensor.type == Sensor.TYPE_ACCELEROMETER) {
+            gravity = event.values.clone()
+        }
+        if (event.sensor.type == Sensor.TYPE_MAGNETIC_FIELD) {
+            geomagnetic = event.values.clone()
+        }
+
+        if (gravity != null && geomagnetic != null) {
+            val success = SensorManager.getRotationMatrix(rotationMatrix, null, gravity, geomagnetic)
+            if (success) {
+                SensorManager.getOrientation(rotationMatrix, orientationAngles)
+                val azimuthInRadians = orientationAngles[0]
+                val azimuthInDegrees = Math.toDegrees(azimuthInRadians.toDouble()).toFloat()
+                bearing = azimuthInDegrees
+            }
+        }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+        // Not used
     }
 }
 
 @Composable
-fun StartTimerScreen(onStart: (Int) -> Unit) {
-    val minutesOptions = (0..59).toList()
-    val secondsOptions = (0..59).toList()
-
-    val minutesPickerState = rememberPickerState(initialNumberOfOptions = minutesOptions.size, initiallySelectedOption = 1)
-    val secondsPickerState = rememberPickerState(initialNumberOfOptions = secondsOptions.size, initiallySelectedOption = 0)
-
-    val selectedMinutes by remember {
-        derivedStateOf { minutesOptions[minutesPickerState.selectedOption] }
-    }
-    val selectedSeconds by remember {
-        derivedStateOf { secondsOptions[secondsPickerState.selectedOption] }
-    }
-
-    val focusRequester = remember { FocusRequester() }
-
-    Scaffold(
-        timeText = { TimeText() },
-        vignette = null
+fun Compass(bearing: Float) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
     ) {
-        Column(
+        Image(
+            painter = painterResource(id = R.drawable.ic_arrow),
+            contentDescription = "Compass Needle",
             modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 8.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceAround
-        ) {
-            Spacer(modifier = Modifier.height(16.dp))
+                .fillMaxSize(0.5f)
+                .rotate(degrees = -bearing),
+            colorFilter = ColorFilter.tint(MaterialTheme.colors.primary)
+        )
+    }
+}
 
-            Row(
-                horizontalArrangement = Arrangement.spacedBy((-16).dp), // Negative spacing to bring pickers closer
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Text(
-                        text = "mins",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium,
-                        textAlign = TextAlign.Center
-                    )
-                    Picker(
-                        modifier = Modifier
-                            .width(60.dp)
-                            .height(80.dp)
-                            .focusRequester(focusRequester),
-                        state = minutesPickerState,
-                        contentDescription = "minutes"
-                    ) { index ->
-                        Text(
-                            text = minutesOptions[index].toString().padStart(2, '0'),
-                            fontSize = 36.sp, // Increased font size from 26.sp to 30.sp
-                            textAlign = TextAlign.Center
-                        )
-                    }
-                }
-
-                // Separator aligned with picker numbers
-                Box(
-                    modifier = Modifier
-                        .width(20.dp)
-                        .height(80.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = ":",
-                        fontSize = 36.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(top = 16.dp)
-                    )
-                }
-
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Text(
-                        text = "secs",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium,
-                        textAlign = TextAlign.Center
-                    )
-                    Picker(
-                        modifier = Modifier
-                            .width(60.dp)
-                            .height(80.dp),
-                        state = secondsPickerState,
-                        contentDescription = "seconds"
-                    ) { index ->
-                        Text(
-                            text = secondsOptions[index].toString().padStart(2, '0'),
-                            fontSize = 36.sp, // Increased font size from 26.sp to 30.sp
-                            textAlign = TextAlign.Center
-                        )
-                    }
-                }
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Button(
-                onClick = {
-                    val totalSeconds = selectedMinutes * 60 + selectedSeconds
-                    if (totalSeconds > 0) {
-                        onStart(totalSeconds)
-                    }
-                },
-                modifier = Modifier
-                    .padding(horizontal = 16.dp)
-                    .fillMaxWidth(0.8f)
-                    .height(52.dp)
-            ) {
-                Text(
-                    "Start Timer",
-                    fontSize = 20.sp
-                )
-            }
-            Spacer(modifier = Modifier.height(16.dp))
-        }
+@Preview(
+    device = Devices.WEAR_OS_LARGE_ROUND,
+    showSystemUi = true
+)
+@Composable
+fun CompassPreview() {
+    MaterialTheme {
+        Compass(bearing = 45f)
     }
 }
