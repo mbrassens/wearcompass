@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.frank.wearcompass">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault">
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="true" />
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CountdownActivity"
+            android:exported="true"
+            android:label="@string/app_name" />
+        <service
+            android:name=".TimerTileService"
+            android:label="Timer Tile"
+            android:exported="true"
+            android:permission="com.google.android.wearable.permission.BIND_TILE_PROVIDER">
+            <intent-filter>
+                <action android:name="androidx.wear.tiles.action.BIND_TILE_PROVIDER" />
+            </intent-filter>
+            <meta-data
+                android:name="androidx.wear.tiles.PREVIEW"
+                android:resource="@drawable/tile_preview" />
+        </service>
+        <service
+            android:name=".TimerService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+        <service
+            android:name=".OneMinuteTimerComplicationService"
+            android:label="1 Minute Timer"
+            android:icon="@drawable/ic_timer_simple"
+            android:exported="true"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter>
+                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+                android:value="SHORT_TEXT,RANGED_VALUE,LONG_TEXT,MONOCHROMATIC_IMAGE" />
+            <meta-data
+                android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
+                android:value="0" />
+            <meta-data
+                android:name="android.support.wearable.complications.PREVIEW_ICON"
+                android:resource="@drawable/ic_timer_simple" />
+        </service>
+        <service
+            android:name=".SimpleTimerComplicationService"
+            android:label="Simple Timer"
+            android:icon="@drawable/ic_timer_simple"
+            android:exported="true"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter>
+                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+                android:value="SHORT_TEXT,RANGED_VALUE,LONG_TEXT,MONOCHROMATIC_IMAGE" />
+            <meta-data
+                android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
+                android:value="0" />
+            <meta-data
+                android:name="android.support.wearable.complications.PREVIEW_ICON"
+                android:resource="@drawable/ic_timer_simple" />
+        </service>
+        <service
+            android:name=".BasicTimerComplicationService"
+            android:label="Basic Timer"
+            android:icon="@drawable/ic_timer_google_style"
+            android:exported="true"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter>
+                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+                android:value="SHORT_TEXT,MONOCHROMATIC_IMAGE" />
+            <meta-data
+                android:name="android.support.wearable.complications.PREVIEW_ICON"
+                android:resource="@drawable/ic_timer_google_style" />
+        </service>
+    </application>
+
+</manifest>

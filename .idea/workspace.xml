@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml">
+        <config>
+          <theme>@android:style/Theme.DeviceDefault</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_timer_sandglass_crown.xml">
+        <config>
+          <theme>@android:style/Theme.DeviceDefault</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@android:style/Theme.DeviceDefault</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6019b5ba-6b02-4f09-b780-6452b38fc926" name="Changes" comment="Enhance HelloWorldTileService to launch CountdownActivity with a 1-minute timer and add preview functionality. Update Gradle dependencies for Wear Tiles tooling and ProtoLayout expression. Modify IDE configuration files, including deployment targets, execution history, and file hashes.">
+      <change afterPath="$PROJECT_DIR$/.idea/wearcompass.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/wearcompass/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/BasicTimerComplicationService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/BasicTimerComplicationService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/CountdownActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/CountdownActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/OneMinuteTimerComplicationService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/OneMinuteTimerComplicationService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/SimpleTimerComplicationService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/SimpleTimerComplicationService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/TimerOldTileService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/TimerOldTileService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/TimerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/TimerService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/TimerTileService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/TimerTileService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/util/Annotations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/util/Annotations.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/util/FormatUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/frank/weartimer/util/FormatUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=/Users/frankdeschenes/.android/avd/Wear_OS_Large_Round_API_34.avd)]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="weartictactoe" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mbrassens&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/mbrassens/weartimer.git&quot;,
+    &quot;accountId&quot;: &quot;18505ef6-b551-4977-9a25-8fe3d18b4032&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="com.frank.weartimer.HelloWorldTileServiceKt.HelloWorldTilePreview" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="30FAjgi4ksuRZmQNSdmrrhcok6k" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.Weartictactoe.executor": "Run",
+    "Android App.app.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Wear OS Tile.HelloWorldTileService.executor": "Run",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/frankdeschenes/AndroidStudioProjects/wearcompass",
+    "settings.editor.selected.configurable": "com.android.studio.ml.bot.mainConfigurable"
+  }
+}]]></component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="app.BasicTimerComplicationService" type="AndroidComplicationConfigurationType" factoryName="AndroidComplicationConfigurationFactory" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="weartimer.app" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <LaunchOptions>
+        <option name="chosenSlots">
+          <list />
+        </option>
+        <option name="componentName" value="com.frank.weartimer.BasicTimerComplicationService" />
+      </LaunchOptions>
+      <DeployOptions>
+        <option name="pmInstallFlags" value="" />
+      </DeployOptions>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app.OneMinuteTimerComplicationService" type="AndroidComplicationConfigurationType" factoryName="AndroidComplicationConfigurationFactory" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="weartimer.app" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <LaunchOptions>
+        <option name="chosenSlots">
+          <list />
+        </option>
+        <option name="componentName" value="com.frank.weartimer.OneMinuteTimerComplicationService" />
+      </LaunchOptions>
+      <DeployOptions>
+        <option name="pmInstallFlags" value="" />
+      </DeployOptions>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app.SimpleTimerComplicationService" type="AndroidComplicationConfigurationType" factoryName="AndroidComplicationConfigurationFactory" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="weartimer.app" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <LaunchOptions>
+        <option name="chosenSlots">
+          <list />
+        </option>
+        <option name="componentName" value="com.frank.weartimer.SimpleTimerComplicationService" />
+      </LaunchOptions>
+      <DeployOptions>
+        <option name="pmInstallFlags" value="" />
+      </DeployOptions>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Weartictactoe" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" singleton="true">
+      <module name="weartictactoe.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="wearcompass.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app.ScoreboardTileService" type="AndroidTileConfigurationType" factoryName="AndroidTileConfigurationFactory" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="weartimer.app" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <LaunchOptions>
+        <option name="componentName" value="com.frank.weartimer.ScoreboardTileService" />
+      </LaunchOptions>
+      <DeployOptions>
+        <option name="pmInstallFlags" value="" />
+      </DeployOptions>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app.TimerOldTileService" type="AndroidTileConfigurationType" factoryName="AndroidTileConfigurationFactory" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="weartimer.app" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <LaunchOptions>
+        <option name="componentName" value="com.frank.weartimer.TimerOldTileService" />
+      </LaunchOptions>
+      <DeployOptions>
+        <option name="pmInstallFlags" value="" />
+      </DeployOptions>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app.TimerTileService" type="AndroidTileConfigurationType" factoryName="AndroidTileConfigurationFactory" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="weartimer.app" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <LaunchOptions>
+        <option name="componentName" value="com.frank.weartimer.TimerTileService" />
+      </LaunchOptions>
+      <DeployOptions>
+        <option name="pmInstallFlags" value="" />
+      </DeployOptions>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Android App.app" />
+      <item itemvalue="Android App.Weartictactoe" />
+      <item itemvalue="Wear OS Complication.app.BasicTimerComplicationService" />
+      <item itemvalue="Wear OS Complication.app.OneMinuteTimerComplicationService" />
+      <item itemvalue="Wear OS Complication.app.SimpleTimerComplicationService" />
+      <item itemvalue="Wear OS Tile.app.TimerOldTileService" />
+      <item itemvalue="Wear OS Tile.app.TimerTileService" />
+      <item itemvalue="Wear OS Tile.app.ScoreboardTileService" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6019b5ba-6b02-4f09-b780-6452b38fc926" name="Changes" comment="" />
+      <created>1753213083626</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753213083626</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Added Stop and Restart buttons">
+      <option name="closed" value="true" />
+      <created>1753787536236</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753787536236</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Attempting a push from Android Studio">
+      <option name="closed" value="true" />
+      <created>1753787692334</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753787692334</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update CountdownActivity with new icon buttons and add Material Icons Extended dependency. Modify Gradle and IDE configuration files, including execution history and file hashes.">
+      <option name="closed" value="true" />
+      <created>1753788721812</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753788721812</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add HelloWorldTileService and update its configuration in AndroidManifest.xml. Modify Gradle and IDE configuration files, including execution history, file hashes and problem reports.">
+      <option name="closed" value="true" />
+      <created>1753795298792</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1753795298792</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Enhance HelloWorldTileService to launch CountdownActivity with a 1-minute timer and add preview functionality. Update Gradle dependencies for Wear Tiles tooling and ProtoLayout expression. Modify IDE configuration files, including deployment targets, execution history, and file hashes.">
+      <option name="closed" value="true" />
+      <created>1753799118740</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1753799118740</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Stop and Restart buttons" />
+    <MESSAGE value="Attempting a push from Android Studio" />
+    <MESSAGE value="Update CountdownActivity with new icon buttons and add Material Icons Extended dependency. Modify Gradle and IDE configuration files, including execution history and file hashes." />
+    <MESSAGE value="Add HelloWorldTileService and update its configuration in AndroidManifest.xml. Modify Gradle and IDE configuration files, including execution history, file hashes and problem reports." />
+    <MESSAGE value="Update timer functionality by refactoring TimerService to use LifecycleService, enhancing state management with coroutines and SharedPreferences. Introduce utility methods for time formatting and improve notification handling. Modify CountdownActivity and TimerTileService for better integration. Update Gradle dependencies and IDE configuration files to reflect these changes." />
+    <MESSAGE value="Enhance HelloWorldTileService to launch CountdownActivity with a 1-minute timer and add preview functionality. Update Gradle dependencies for Wear Tiles tooling and ProtoLayout expression. Modify IDE configuration files, including deployment targets, execution history, and file hashes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhance HelloWorldTileService to launch CountdownActivity with a 1-minute timer and add preview functionality. Update Gradle dependencies for Wear Tiles tooling and ProtoLayout expression. Modify IDE configuration files, including deployment targets, execution history, and file hashes." />
+  </component>
+  <component name="play_dynamic_filters_status">
+    <option name="appIdToCheckInfo">
+      <map>
+        <entry key="com.frank.weartictactoe">
+          <value>
+            <CheckInfo lastCheckTimestamp="1753222581091" />
+          </value>
+        </entry>
+        <entry key="com.frank.weartictactoe.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1753222581090" />
+          </value>
+        </entry>
+        <entry key="com.frank.weartimer">
+          <value>
+            <CheckInfo lastCheckTimestamp="1753817079502" />
+          </value>
+        </entry>
+        <entry key="com.frank.weartimer.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1753817079503" />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
